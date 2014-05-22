@@ -8,5 +8,5 @@ var diceRoll = function (sides) {
 
 var stepAmount = function (){};
 
-
+function Dice (){};
 

@@ -3,7 +3,6 @@
 
 ///  face value tests	
 (function () {
-<<<<<<< HEAD
 	'use strict';
 
 	describe('test for the number of die', function (){
@@ -63,9 +62,8 @@
 			expect('dice').to.have.length(2);
 		})
 	});
-=======
-    'use strict';
 
+	// face value tests
     describe('Tests for face values of the die', function () {
         it('should throw an error if the value is a non-number, including undefined and NaN', function () {
 
@@ -122,13 +120,12 @@
           
 
      });
->>>>>>> origin
 })();
 
 
 // ROLL tests
 (function () {
-    'use strict';
+
  
     describe('Roll button and results', function () {
       	it('should verify that all values exists before trigger', function(){

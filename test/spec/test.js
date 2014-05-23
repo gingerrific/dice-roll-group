@@ -6,6 +6,9 @@
 // all <input> fields only take numbers as value. Don't yet know what the 
 //number of fields will be. 
 
+
+
+//style tests//
 (function() {
 
 	'use strict';
@@ -21,59 +24,77 @@
 	
 	it("should give an alert for nAn when creating the number of sides", function(){
 			var answer=5;
-			expect(answer).to.equal(nAn);
+			expect(answer).to.equal(NaN);
 
 		})
 
+	it("should alert everything is truthy when button is activated", function(){
+			var answer=true;
+			expect('true').to.be(false)
 	})
+})
 
 })();  
 
-//Dice
+	///using mason's example and tweeking it, this may work better.///
 
-diceStyle=function(){
-	append(x)div
-	$('.numDiceVal').val(function(){
-		diceStyle();
-		diceFaceVal();
-	
-}
+	   describe("Create Die Button", function(){
+ 
+      // set input vaue to 7
+      $('.die-sides').val('7');
+      // then click the button
+      $('.create-die').click();
+ 
+      
 
-	it('should update associated fields')
-
-
-
-
-
-
-
-
-
-
-
-
+      it("should create a die and store it in Dieglobal", function(){        
+        expect(Die.sides).to.equal(7);
+      });
+ 
+      it("should create a die with sides equal the input value", function(){
+        var inputVal = parseInt($('.die-sides').val())
+        expect(Die.sides).to.equal(inputVal);
+      });
+ 
+    }); ///creates and stores inputs for each field.
 
 
+////continue on creating die button-a different way///
 
+	(function(){
 
-/*(function() {
+		"use string";
 
-  	describe('roll', function() {
+	describe("Die constructor",function(){
+		it("should assign a side property to instance",function(){
+		var die=new Die(100)
 
-    it('should have check for each die', function() {
-      expect(roll.length).to.equal(6)
-
-      roll = new Dice(10).roll();
-      expect(roll.length).to.equal(10)
-    }
-
-    it('should return number', function() {
-      expect(roll[0]).to.be.a('number')
-    })
+});		expect('.die').to.property('.sides');
+		expect('.die.sides').to.equal('100');
+});
+		//allowing the number to not turned into a string
+		it("should accept a number as string",function(){
+			var die=new Die("7");
+			expect('die.sides').to.equal("7");
 })
-});*/
+		it('should be hidden unless using parent', function () {
+			// checks whether or not the parent is selected first.  
+	    	expect($('.parent-input')).to.not.exist;
+})
 
-/*(function () {
+		  it('should increment after rolling', function() {
+      expect(die.numRolls).to.equal(1)
+   })
+		     it("should impart a sides property to instances", function(){
+        var die = new Die(10);
+        expect(die).to.have.property('sides');
+      });
+ 
+     });
+
+
+	
+(function () {
     'use strict';
 
     describe('to accept', function () {
@@ -84,4 +105,6 @@ diceStyle=function(){
             });
         });
      });
-})();*/
+})();
+
+

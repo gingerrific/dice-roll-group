@@ -7,6 +7,31 @@
     <link rel="stylesheet" href="bower_components/mocha/mocha.css">
 </head>
 <body>
+
+   <select class="dice-sides-input">
+                <option></option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>22</option>
+            </select>
+
+        <div id="die1" class="dice">0</div>
+        <div id="die2" class="dice">0</div>
+        <button onclick="rollDice()"> Roll Dice </button>
+        <h2 id="status" style="clear:left;"></h2>
+
+        <form>
+        <input type = "button" value="Throw dice!" onClick="throwdice()">
+        </form>
+
+        <input type="text" class="die-sides">
+        <button class="create-die">Create Die</button>
+
+
     <div id="mocha"></div>
     <script src="bower_components/mocha/mocha.js"></script>
     <script>mocha.setup('bdd')</script>

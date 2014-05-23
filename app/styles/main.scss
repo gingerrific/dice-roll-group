@@ -6,24 +6,35 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 .interface-container {
     margin: 40px auto;
     width: 50%;
-
+    vertical-align: top;
     & ul {
         list-style: none;
         display: inline-block;
         margin: 0;
+        margin-left: 5px;
         padding: 0;
-
+        vertical-align: top;
         & li {
-
+            display: none;
         } 
+    }
+
+    .dice-selector {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    & select {
+        margin-left: 7px;
     }
 }
 .dice-display-container {
     height: 400px;
     width: 400px;
     background: #222;
-    margin: auto;
-    display: inline-block;
+    margin: 25px auto;
+    display: block;
+    position: relative;
     vertical-align: top;
     font-size: 22px;
     color: #fff;
@@ -32,22 +43,20 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
     & ul {
         list-style: none;
-        margin: none;
-        padding: none;
+        margin: 0;
+        padding-top: 45px;
+        padding-left: 0;
+        padding-right: 0;
 
         & li {
-            margin-top: 5px;
+            margin: 20px auto 0;
             height: 40px;
             width:40px;
             background: blue;
             line-height: 40px;
+            display: none;
         }
     }
-}
-
-.dice-num-input {
-    margin: auto;
-    vertical-align: top;
 }
 
 
@@ -55,4 +64,143 @@ button {
     margin: 10px auto;
     width: 200px;
     display: block;
+}
+
+
+
+
+
+
+/* /!\ You need to add vendor prefixes in order to render the CSS properly (or simply use http://leaverou.github.io/prefixfree/) /!\ */ 
+#tridiv {
+  perspective: 800px;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  font-size: 100%;
+}
+.face {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+.scene, .shape, .face, .face-wrapper, .cr {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+.scene {
+  width: 80em;
+  height: 80em;
+  top: 50%;
+  left: 50%;
+  margin: -40em 0 0 -40em;
+  -webkit-transform:rotateX(-37deg) 
+                    rotateY(-18deg); 
+     -moz-transform:rotateX(-37deg) 
+                    rotateY(-18deg); 
+      -ms-transform:rotateX(-37deg) 
+                    rotateY(-18deg); 
+          transform:rotateX(-37deg) 
+                    rotateY(-18deg); 
+}
+
+.shape {
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform-origin: 50%;
+}
+.face, .face-wrapper {
+  overflow: hidden;
+  transform-origin: 0 0;
+  backface-visibility: hidden;
+  /* hidden by default, prevent blinking and other weird rendering glitchs */
+}
+.face {
+  background-size: 100% 100%!important;
+  background-position: center;
+  text-align: center;
+  line-height: 4em;
+}
+.face-wrapper .face {
+  left: 100%;
+  width: 100%;
+  height: 100%
+}
+.photon-shader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%
+}
+.side {
+  left: 50%;
+}
+.cr, .cr .side {
+  height: 100%;
+}
+[class*="cuboid"] .ft, [class*="cuboid"] .bk {
+  width: 100%;
+  height: 100%;
+}
+[class*="cuboid"] .bk {
+  left: 100%;
+}
+[class*="cuboid"] .rt {
+  transform: rotateY(-90deg) translateX(-50%);
+}
+[class*="cuboid"] .lt {
+  transform: rotateY(90deg) translateX(-50%);
+}
+[class*="cuboid"] .tp {
+  transform: rotateX(90deg) translateY(-50%);
+}
+[class*="cuboid"] .bm {
+  transform: rotateX(-90deg) translateY(-50%);
+}
+[class*="cuboid"] .lt {
+  left: 100%;
+}
+[class*="cuboid"] .bm {
+  top: 100%;
+}
+/* .cub-1 styles */
+.cub-1 {
+  transform:translate3D(0em, 0em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  opacity:1;
+  width:4em;
+  height:4em;
+  margin:-2em 0 0 -2em;
+}
+.cub-1 .ft {
+  transform:translateZ(2em);
+}
+.cub-1 .bk {
+  transform:translateZ(-2em) rotateY(180deg);
+}
+.cub-1 .rt, .cub-1 .lt {
+  width:4em;
+  height:4em;
+}
+.cub-1 .tp, .cub-1 .bm {
+  width:4em;
+  height:4em;
+}
+.cub-1 .face {
+  background-color:#ffb864;
+}
+
+
+
+
+.youRolled {
+    margin: 200px auto 0;
+    height: 100px;
+    width: 500px;
+    background: darken(orange, 2%);
+    font-size: 20px;
+    text-align: center;
+    line-height: 100px;
 }

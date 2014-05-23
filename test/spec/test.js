@@ -3,7 +3,7 @@
 
 ///  face value tests	
 (function () {
-<<<<<<< HEAD
+
 	'use strict';
 
 	describe('test for the number of die', function (){
@@ -63,7 +63,7 @@
 			expect('dice').to.have.length(2);
 		})
 	});
-=======
+
     'use strict';
 
     describe('Tests for face values of the die', function () {
@@ -122,7 +122,6 @@
           
 
      });
->>>>>>> origin
 })();
 
 

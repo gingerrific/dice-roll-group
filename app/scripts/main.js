@@ -1,4 +1,5 @@
 
+
 /*Tasha
 "use strict";
 
@@ -22,6 +23,19 @@ return Math.floor(Math.random() * sides) + 1
 
 "use strict";
 //Josh//
+
+"use strict";
+
+var diceFace = function (rollAmt, iterator){};
+
+
+var stepAmount = function (){};
+
+
+
+
+
+
 // function Dice (diceNum, sidesNum, iteratorVal){
 // 	this.sides = sidesNum;
 // 	this.numberOfDice = getNum(diceNum);
@@ -29,10 +43,17 @@ return Math.floor(Math.random() * sides) + 1
 // };
 
 //generates a list from blank-99 for the side numbers
+
 // var makeSides = function() {
 //   for (var i = 0; i<100;i+=1){
 //     $('.dice-sides-input').append("<option>"+ i + "</option>");
 // }}
+
+var makeSides = function() {
+  for (var i = 0; i<100;i+=1){
+    $('.dice-sides-input').append("<option>"+ i + "</option>");
+}}
+
 
 var makeDiceAmount = function () {
  for (var i = 0; i<100;i+=1){
@@ -41,13 +62,23 @@ var makeDiceAmount = function () {
 
 
 
+
+
+makeSides();
+
 makeDiceAmount();
 
 var getNum = function () {
 	var diceAmount = $('.dice-number-input :selected').text();
+
 	var array = [];
 	for (var i=0; i<diceAmount; i+=1) {
 		var sides = $('.dice-sides-input-'+(i+1)+' :selected').text();
+
+	var sides = $('.dice-sides-input :selected').text();
+	var array = [];
+	for (var i=0; i<diceAmount; i+=1) {
+
 		var result = Math.floor(Math.random() * sides) + 1;
 		array[i] = result
 	}
@@ -56,12 +87,22 @@ var getNum = function () {
 
 		for(var j = 0; j <diceAmount; j+=1) {
 
+
 			$('.dice-display-container ul li:nth-child('+ (j+1) +')').html(array[j].toString()).show();
 		}
 	}
 
 
 $('.rollButton').click(function(){
+
+
+			$('.dice-display-container ul li:nth-child('+ (j+1) +')').html(array[j].toString());
+		}
+	}
+	
+
+$('.rollButton').click(function(){
+	
 
 	return getNum();
 });
@@ -79,6 +120,7 @@ $('.rollButton').click(function(){
 
 // multiples
 // return i*n
+
 
 
 $(".dice-number-input").change(function() {
@@ -122,3 +164,4 @@ $('.rollButton').click(function () {
 })
 
 	
+

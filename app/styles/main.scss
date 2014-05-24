@@ -2,7 +2,6 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
 
-
 /*.body{
     color:green;
 }
@@ -51,7 +50,49 @@ body {
         & li {
             display: none;
         } 
+
+.interface-container {
+    margin: 40px auto;
+    width: 50%;
+
+    & ul {
+        list-style: none;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+
+        & li {
+
+        } 
     }
+}
+.dice-display-container {
+    height: 400px;
+    width: 400px;
+    background: #222;
+    margin: auto;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    line-height: 400px;
+
+    & ul {
+        list-style: none;
+        margin: none;
+        padding: none;
+
+        & li {
+            margin-top: 5px;
+            height: 40px;
+            width:40px;
+            background: blue;
+            line-height: 40px;
+        }
+
+    }
+
 
     .dice-selector {
         display: inline-block;
@@ -94,10 +135,17 @@ body {
 }
 
 
+
+.dice-num-input {
+    margin: auto;
+    vertical-align: top;
+}
+
 button {
     margin: 10px auto;
     width: 200px;
     display: block;
+
 }
 
 
@@ -255,11 +303,5 @@ button {
 }
 
 
-
-
-
-
-
-
-
+}
 

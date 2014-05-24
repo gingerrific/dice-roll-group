@@ -9,6 +9,28 @@
 
 
 //style tests//
+
+(function () {
+
+	'use strict';
+
+	describe('If it passes, player is assigned a number.diceSides', function () {
+		it('should set player.dice if input valid', function () {
+	
+			var testInput = 10;
+
+			// passing value to the function
+			inputValue(testInput);
+
+			// assigns number
+			expect(player.diceSides).to.equal(testInput);
+		});
+	});
+})();
+
+
+
+
 (function() {
 
 	'use strict';

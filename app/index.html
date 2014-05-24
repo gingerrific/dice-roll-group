@@ -42,13 +42,67 @@
                     </li>
                 </ul>
 
-            <div class="dice-display-container">
+
+
+            
+
+        <!--<div class="die1"></div>
+        <div class="die2"></div>
+        <button class="roll">Roll Dice</button>
+        <h1 class= "status" style ="clear: left;"></h1>
+          <select class="dice-sides-input">
+                <option></option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>22</option>
+            </select>-->
+
+
+                    <div class="dice-display-container">
                 <ul>
                     <li></li>
                     <li></li>
                     <li></li>
                     <li></li>
                 </ul>
+
+            </div>
+
+                <button class="rollButton">Roll Dice</button>
+        
+        <div class="interface-container">
+                <div class="dice-selector">
+                    <span>Number of Dice</span>
+                    <select class="dice-number-input">
+                        <option></option>
+                    </select>
+                </div>
+                
+                <ul>
+                </ul>
+
+        </div>
+
+
+        <div id="tridiv">
+          <div class="scene">
+            <div class="shape cuboid-1 cub-1">
+              <div class="face ft side1"></div>
+              <div class="face bk side2"></div>
+              <div class="face rt side3"></div>
+              <div class="face lt side4"></div>
+              <div class="face bm side5"></div>
+              <div class="face tp side6"></div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="youRolled"></div>
                 
 
             </div>
@@ -68,23 +122,11 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
+
+        <script src="bower_components/underscore/underscore.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 

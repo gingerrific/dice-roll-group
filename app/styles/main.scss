@@ -2,6 +2,54 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
 
+/*.body{
+    color:green;
+}
+
+
+.die1, .die2 {
+    width:200px;
+    height:200px;
+    background:grey;
+    border:#999 1px solid;
+    padding:60px;
+    font-size:30px;
+    text-align:center;
+    margin:5px;
+    margin-left:50px;
+}
+
+.dice-sides-input{
+    width:200px;
+    height:200px;
+}
+
+.status{
+    width:400px;
+    height:100px;
+    border:#999 2px solid;
+    background:red;
+}*/
+//added in a background image//
+body {
+    background-image: url(https://betclick.hs.llnwd.net/e1/pict/Casino/1500x1080_GenericTable.jpg);
+    background-size:cover;
+}
+
+.interface-container {
+    margin: 40px auto;
+    width: 50%;
+    vertical-align: top;
+    & ul {
+        list-style: none;
+        display: inline-block;
+        margin: 0;
+        margin-left: 5px;
+        padding: 0;
+        vertical-align: top;
+        & li {
+            display: none;
+        } 
 
 .interface-container {
     margin: 40px auto;
@@ -42,17 +90,218 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
             background: blue;
             line-height: 40px;
         }
+
+    }
+
+
+    .dice-selector {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    & select {
+        margin-left: 7px;
     }
 }
+.dice-display-container {
+    height: 400px;
+    width: 400px;
+    background-image:url(http://img2.wfrcdn.com/lf/49/hash/13873/6765273/1/Molla-Space-Inc.-Red-Playing-Cards.jpg);
+    margin: 25px auto;
+    display: block;
+    position: relative;
+    vertical-align: top;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    line-height: 400px;
+
+    & ul {
+        list-style: none;
+        margin: 0;
+        padding-top: 45px;
+        padding-left: 0;
+        padding-right: 0;
+
+        & li {
+            margin: 20px auto 0;
+            height: 40px;
+            width:40px;
+            background: blue;
+            line-height: 40px;
+            display: none;
+        }
+    }
+}
+
+
 
 .dice-num-input {
     margin: auto;
     vertical-align: top;
 }
 
-
 button {
     margin: 10px auto;
     width: 200px;
     display: block;
+
 }
+
+
+
+
+
+
+/* /!\ You need to add vendor prefixes in order to render the CSS properly (or simply use http://leaverou.github.io/prefixfree/) /!\ */ 
+#tridiv {
+  perspective: 800px;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  font-size: 250%;
+}
+.face {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.03);
+}
+.scene, .shape, .face, .face-wrapper, .cr {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+.scene {
+  width: 80em;
+  height: 80em;
+  top: 50%;
+  left: 50%;
+  margin: -40em 0 0 -40em;
+  -webkit-transform:rotateX(-37deg) 
+                    rotateY(-18deg); 
+     -moz-transform:rotateX(-37deg) 
+                    rotateY(-18deg); 
+      -ms-transform:rotateX(-37deg) 
+                    rotateY(-18deg); 
+          transform:rotateX(-37deg) 
+                    rotateY(-18deg); 
+}
+.shape {
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform-origin: 50%;
+}
+.face, .face-wrapper {
+  overflow: hidden;
+  transform-origin: 0 0;
+  backface-visibility: hidden;
+  /* hidden by default, prevent blinking and other weird rendering glitchs */
+}
+.face {
+   background-size: 100% 100%!important;
+  background-position: center;
+  text-align: center;
+  line-height: 4em;
+}
+.face-wrapper .face {
+  left: 100%;
+  width: 100%;
+  height: 100%
+}
+.photon-shader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%
+}
+.side {
+  left: 50%;
+}
+.cr, .cr .side {
+  height: 100%;
+}
+[class*="cuboid"] .ft, [class*="cuboid"] .bk {
+  width: 100%;
+  height: 100%;
+}
+[class*="cuboid"] .bk {
+  left: 100%;
+}
+[class*="cuboid"] .rt {
+  transform: rotateY(-90deg) translateX(-50%);
+}
+[class*="cuboid"] .lt {
+  transform: rotateY(90deg) translateX(-50%);
+}
+[class*="cuboid"] .tp {
+  transform: rotateX(90deg) translateY(-50%);
+}
+[class*="cuboid"] .bm {
+  transform: rotateX(-90deg) translateY(-50%);
+}
+[class*="cuboid"] .lt {
+  left: 100%;
+}
+[class*="cuboid"] .bm {
+  top: 100%;
+}
+/* .cub-1 styles */
+.cub-1 {
+  transform:translate3D(0em, 0em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  opacity:1;
+  width:4em;
+  height:5em;
+  margin:-2.5em 0 0 -2em;
+}
+.cub-1 .ft {
+  transform:translateZ(2em);
+}
+.cub-1 .bk {
+  transform:translateZ(-2em) rotateY(180deg);
+}
+.cub-1 .rt, .cub-1 .lt {
+  width:4em;
+  height:100%;
+}
+.cub-1 .tp, .cub-1 .bm{
+  width:4em;
+  height:4em;
+}
+.cub-1 .face {
+  background-color:#FFFFFF;
+}//added in dice images
+.cub-1 .ft {
+    background: url(http://4.bp.blogspot.com/-PWtnEpdiasM/Tfz1765y0uI/AAAAAAAAAEk/Z6ebr0SJNhI/s200/Dice6.jpg);
+}
+.cub-1 .bk {
+   background: url(http://2.bp.blogspot.com/-MDwUocciFLY/Tfz1y6TE0MI/AAAAAAAAAD8/gIcj4HsZFWY/s200/Dice1.jpg);
+}
+.cub-1 .tp {
+    background: url(http://3.bp.blogspot.com/-ly5UXkR-lcg/Tfz1zgfO0GI/AAAAAAAAAEE/7Cx78huP0Kk/s200/Dice2.jpg);
+}
+.cub-1 .bm {
+    background: url(http://2.bp.blogspot.com/-zIzHdd_e3IM/Tfz1z_GQU7I/AAAAAAAAAEM/lxVTCfAe1Hw/s200/Dice3.jpg);
+}
+.cub-1 .lt {
+    background: url(http://4.bp.blogspot.com/-zn4MXkJ_C-g/Tfz10QuYhrI/AAAAAAAAAEU/HJZklt4M7Ys/s200/Dice4.jpg);
+}
+.cub-1 .rt {
+    background: url(http://4.bp.blogspot.com/-QHxGKMUT5MQ/Tfz104LKZ5I/AAAAAAAAAEc/2S9KnPfk24A/s200/Dice5.jpg);
+}
+
+
+.youRolled {
+    margin: 200px auto 0;
+    height: 100px;
+    width: 500px;
+    background: darken(red, 2%);
+    font-size: 20px;
+    text-align: center;
+    line-height: 100px;
+}
+
+
+}
+

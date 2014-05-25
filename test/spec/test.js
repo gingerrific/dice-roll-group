@@ -1,7 +1,5 @@
 /* global describe, it */
 
-
-///  face value tests	
 (function () {
 
 	'use strict';
@@ -34,7 +32,7 @@
 		it('should create the appropriate number of die', function (){
 			//instance of will assert that the target is an instance of constructor //
 			var Dice = function (name) { this.name = name; }
-  			, Die = new Diece('die');
+  			, Die = new Dice('die');
 
   			expect(Die).to.be.an.instanceof(dice);	
 		})

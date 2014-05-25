@@ -31,7 +31,7 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 .dice-display-container {
     height: 400px;
     width: 400px;
-    background: #222;
+    background: #C8C8C8;
     margin: 25px auto;
     display: block;
     position: relative;
@@ -40,23 +40,7 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
     color: #fff;
     text-align: center;
     line-height: 400px;
-
-    & ul {
-        list-style: none;
-        margin: 0;
-        padding-top: 45px;
-        padding-left: 0;
-        padding-right: 0;
-
-        & li {
-            margin: 20px auto 0;
-            height: 40px;
-            width:40px;
-            background: blue;
-            line-height: 40px;
-            display: none;
-        }
-    }
+    text-shadow: 0 1px 1px darken(white, 25%);
 }
 
 
@@ -65,10 +49,6 @@ button {
     width: 200px;
     display: block;
 }
-
-
-
-
 
 
 /* /!\ You need to add vendor prefixes in order to render the CSS properly (or simply use http://leaverou.github.io/prefixfree/) /!\ */ 
@@ -80,6 +60,7 @@ button {
   height: 100%;
   background: transparent;
   font-size: 100%;
+  display: none;
 }
 .face {
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.4);
@@ -196,11 +177,215 @@ button {
 
 
 .youRolled {
-    margin: 200px auto 0;
+    margin: 30px auto 50px;
     height: 100px;
-    width: 500px;
-    background: darken(orange, 2%);
+    width: 90%;
+    background: #ffb864;
     font-size: 20px;
     text-align: center;
     line-height: 100px;
+    color: #fff;
+    text-shadow: 0 1px 1px darken(white, 25%);
 }
+
+
+
+
+
+
+
+
+// Pyramid
+// .face2 {
+//     text-align: center;
+//     position: relative;
+
+//     & .pyr-number {
+//         position: absolute;
+//         top: 25%;
+//         left: 25%;
+//         -webkit-transform: rotateZ(-35deg);
+//     }
+// }
+
+
+/* /!\ You need to add vendor prefixes in order to render the CSS properly (or simply use http://leaverou.github.io/prefixfree/) /!\ */ 
+
+#tridiv2 {
+  perspective: 800px;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  font-size: 100%;
+  display: none;
+}
+.face2 {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .4);
+}
+.scene2, .shape2, .face2, .face-wrapper2, .cr2 {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+.scene2 {
+  width: 100%;
+  height: 100%;
+  margin: -2.5em 0 0 .5em;
+  -webkit-transform:rotateX(-6deg) 
+                    rotateY(4deg)
+                    rotateZ(0deg); 
+     -moz-transform:rotateX(-6deg) 
+                    rotateY(4deg); 
+      -ms-transform:rotateX(-6deg) 
+                    rotateY(4deg); 
+          transform:rotateX(-6deg) 
+                    rotateY(4deg); 
+}
+.shape2 {
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform-origin: 50%;
+}
+.face2, .face-wrapper2 {
+  overflow: hidden;
+  transform-origin: 0 0;
+  backface-visibility: hidden;
+  /* hidden by default, prevent blinking and other weird rendering glitchs */
+}
+.face2 {
+  background-size: 100% 100%!important;
+  background-position: center;
+}
+.face-wrapper2 .face2 {
+  left: 100%;
+  width: 100%;
+  height: 100%
+}
+.photon-shader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%
+}
+.side2 {
+  left: 50%;
+}
+.cr2, .cr2 .side2 {
+  height: 100%;
+}
+[class*="pyramid"] .face-wrapper2 .face2 {
+  transform: rotateZ(45deg) translateX(-35.35%) translateY(35.35%);
+}
+[class*="pyramid"] .bk2 {
+  left: 100%;
+}
+[class*="pyramid"] .bm2 {
+  top: 100%;
+  transform: rotateX(-90deg) translateY(-50%);
+}
+[class*="pyramid"] .rt2, [class*="pyramid"] .lt2 {
+  transform-origin: 50% 0;
+}
+/* .pyr-1 styles */
+.pyr-1 {
+  transform:translate3D(0em, 0em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  opacity:1;
+  width:8em;
+  height:7em;
+  margin:-3.5em 0 0 -4em;
+}
+.pyr-1 .face-wrapper2 {
+  width:8em;
+  height:4em;
+}
+.pyr-1 .face-wrapper2 .face2 {
+  width:8em;
+  height:8em;
+}
+.pyr-1 .ft2 {
+  transform:scaleZ(2.0155644370746373) scaleY(2.0155644370746373) rotateX(29.744881296942214deg);
+}
+.pyr-1 .bk2 {
+  transform:scaleZ(2.0155644370746373) scaleY(2.0155644370746373) rotateX(-29.744881296942214deg) rotateY(180deg);
+}
+.pyr-1 .rt2 {
+  transform:scaleX(2.0155644370746373) scaleY(2.0155644370746373) rotateZ(29.744881296942214deg) rotateY(-90deg);
+}
+.pyr-1 .lt2 {
+  transform:scaleX(2.0155644370746373) scaleY(2.0155644370746373) rotateZ(-29.744881296942214deg) rotateY(90deg);
+}
+.pyr-1 .bm2 {
+  width:8em;
+  height:8em;
+}
+.pyr-1 .face2 {
+  background-color:#ffb864;
+}
+/* .pyr-2 styles */
+.pyr-2 {
+  transform:translate3D(0em, 7em, 0em) rotateX(0deg) rotateY(0deg) rotateZ(180deg);
+  opacity:1;
+  width:8em;
+  height:7em;
+  margin:-3.5em 0 0 -4em;
+}
+.pyr-2 .face-wrapper2 {
+  width:8em;
+  height:4em;
+}
+.pyr-2 .face-wrapper2 .face2 {
+  width:8em;
+  height:8em;
+}
+.pyr-2 .ft2 {
+  transform:scaleZ(2.0155644370746373) scaleY(2.0155644370746373) rotateX(29.744881296942214deg);
+}
+.pyr-2 .bk2 {
+  transform:scaleZ(2.0155644370746373) scaleY(2.0155644370746373) rotateX(-29.744881296942214deg) rotateY(180deg);
+}
+.pyr-2 .rt2 {
+  transform:scaleX(2.0155644370746373) scaleY(2.0155644370746373) rotateZ(29.744881296942214deg) rotateY(-90deg);
+}
+.pyr-2 .lt2 {
+  transform:scaleX(2.0155644370746373) scaleY(2.0155644370746373) rotateZ(-29.744881296942214deg) rotateY(90deg);
+}
+.pyr-2 .bm2 {
+  width:8em;
+  height:8em;
+}
+.pyr-2 .face2 {
+  background-color:#ffb864;
+}
+
+
+.face2 {
+    text-align: center;
+    position: relative;
+
+    & .pyr-number {
+        position: absolute;
+        top: -89%;
+        left: 20%;
+        -webkit-transform: rotateZ(-44deg);
+    }
+
+    & .pyr-number2 {
+        position: absolute;
+        top: -91%;
+        left: 19%;
+        -webkit-transform: rotateZ(-49deg);
+    }
+}
+
+
+// .scene2:hover {
+//     transition: all 4s linear;
+//     -webkit-transform:rotateX(-904deg) 
+//                       rotateY(1245deg)
+//                       rotateZ(-503deg);
+// }
+    

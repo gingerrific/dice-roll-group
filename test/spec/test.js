@@ -1,8 +1,9 @@
 /* global describe, it */
+'use strict';
+
 
 (function () {
 
-	'use strict';
 
 	describe('test for the number of die', function (){
 		it ('should throw an error for non-number types', function (){

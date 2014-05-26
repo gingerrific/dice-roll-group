@@ -22,26 +22,11 @@
 
     </head>
     <body>
+
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-        <div class="interface-container">
-                <ul>
-                    <li>
-                        <span>Number of Dice</span>
-                        <select class="dice-number-input">
-                            <option></option>
-                        </select>
-                    </li>
-                    <li>
-                        <span>Number of Sides</span>
-                        <select class="dice-sides-input">
-                            <option></option>
-                        </select>
-                    </li>
-                </ul>
-
 
 
             
@@ -60,9 +45,11 @@
                 <option>6</option>
                 <option>22</option>
             </select>-->
+            <div class="header">
+                <h1> Game of Dice </h1>
+            </div>
 
-
-                    <div class="dice-display-container">
+            <div class="dice-display-container">
                 <ul>
                     <li></li>
                     <li></li>
@@ -76,7 +63,7 @@
         
         <div class="interface-container">
                 <div class="dice-selector">
-                    <span>Number of Dice</span>
+                    <span class="dicebox">Number of Dice</span>
                     <select class="dice-number-input">
                         <option></option>
                     </select>
@@ -105,26 +92,78 @@
         <div class="youRolled"></div>
                 
 
-            </div>
-        </div>
-                <button class="rollButton">Roll Dice</button>
 
 
+       <!--  <div class="quantity">
+            <p> Select Number of Dice </p>
+            <select class= "select-quantity-dice" type= "number">
+                <option></option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+        </div> -->
 
+       <!--   <div class="sides">
+            <p> Select Number of Sides for Each Dice </p>
+            <select class= "select-sides-dice" type= "number">
+                <option></option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+        </div> -->
 
+       <!--  <div class="sides">
+                    <p>How many sides?</p>
+                    <input class="input-number-of-sides" type="number" min="3" max="99"/>
+                </div> -->
 
+        <!-- <select class = "dice-quantity-input">
+                <option></option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+        </select> -->
 
+<!-- 
+        <div id="die1" class="dice">0</div>
+        <div id="die2" class="dice">0</div>
+        <button class= "button" onclick="rollDice()"> Roll Dice </button>
+        <h2 id="status" style="clear:left;"></h2> -->
 
+       <!--  <form>
+        <input type = "button" value="Throw dice!" onClick="throwDice()">
+        </form>
 
+        <input type="text" class="die-quantity">
+        <button class="create-die">Create Die</button> -->
 
+        <!-- <div>
+          <select id="die-count">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+        <div>
+        <div id="inputs1" class="dice">0</div>
+        <div id="inputs2" class="dice">0</div> -->
 
-
-
-
+       
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
-        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/jquery/jquery.js"></script>
 
         <script src="bower_components/underscore/underscore.js"></script>
         <!-- endbower -->

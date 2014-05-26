@@ -1,4 +1,5 @@
-/* global describe, it */
+'use strict';
+
 //Creating correct number of inputs using the 
 //click button//
 //To cause the error to occur-($)is not defined.
@@ -11,15 +12,13 @@
 //style tests//
 
 
-///  face value tests	
 (function () {
-	'use strict';
 
 	describe('test for the number of die', function (){
 		it ('should throw an error for non-number types', function (){
 			// this will test to ensure that the number entered for the die input is an actual number //
 			var nAnForm;
-			expect(nAnForm).to.throw(error);
+			expect(true).to.be(0);
 
 		});
 
@@ -57,7 +56,7 @@
 		it('should create the appropriate number of die', function (){
 			//instance of will assert that the target is an instance of constructor //
 			var Dice = function (name) { this.name = name; }
-  			, Die = new Diece('die');
+  			, Die = new Dice('die');
 
   			expect(Die).to.be.an.instanceof(dice);	
 		})
@@ -151,7 +150,7 @@
      });
 
 
-	
+	describe ('')
 (function () {
     'use strict';
 
@@ -182,6 +181,7 @@
 			expect('dice').to.have.length(2);
 		})
 	});
+
 
 	// face value tests
     describe('Tests for face values of the die', function () {
@@ -296,3 +296,4 @@
 
     });
 })();
+

@@ -1,4 +1,5 @@
-// functions that are useful, but not with the current visual elements
+// functions that are useful and the better way to take in any number of die and their results, 
+// but they work less well with the current visual elements
 
 
 var getNum = function () {

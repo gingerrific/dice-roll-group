@@ -4,29 +4,58 @@
 //// Globals and Page Load /////////////////////////////
 ////////////////////////////////////////////////////////
 
-var currentRoll;
-
-//generates a list from blank-99 for the dice numbers
+//generates a list from blank-6 for the dice numbers
 var makeDiceAmount = function () {
- for (var i = 0; i<100;i+=1){
+ for (var i = 0; i<6;i+=1){
     $('.dice-number-input').append("<option>"+ i + "</option>");
 }}
-// makeDiceAmount();
+
+makeDiceAmount();
+
+// inits a blank array to use for dice values.
+var diceRoll = []
 
 ////////////////////////////////////////////////////////
 //// Dice Constructor //////////////////////////////////
 ////////////////////////////////////////////////////////
 
-function Dice ( sidesNum, iteratorVal){
-	// this.roll = getNum; adding back in later, removing for testing
+function Dice (){
 	this.sides = diceSides;
+	this.sixSides = sixSidedDie;
+	this.eightSides = eightSidedDie;
+
 	// this.faceVal = // in progress
 };
 
-// on dice number selection, create a 'new' dice
+var sixSidedTemplate = _.template($('.sixSider').text());
+
+var sixSidedDie = function (diceNumber) {
+	return sixSidedTemplate(diceNumber);
+}
+
+var eightSidedTemplate = _.template($('.eightSider').text());
+
+var eightSidedDie = function (diceNumber) {
+	return eightSidedTemplate(diceNumber);
+} 
+
+
+
+////////////////////////////////////////////////////////
+//// Dice Selection ////////////////////////////////////
+////////////////////////////////////////////////////////
+
+// on dice number selection, generate the sides selectors
 $(".dice-number-input").change(function() {
-	currentRoll = new Dice();
-	currentRoll.sides();
+	diceSides();
+})
+
+
+// on 'confirm' click, show the roll button to kick off new Dice creation
+// make the appropriate dice based on input
+$('.selectRoll').click(function () {
+	$('.rollButton').addClass('hideButton');
+	return makeDie();
 })
 
 
@@ -44,86 +73,90 @@ var diceSides = function () {
 		for(var i=0; i < diceAmount; i+=1) {
 			var dieSidesDropdown = "<li><span>Number of Sides</span><select class=\"dice-sides-input-" + (i+1) + "\"><option></option><option>6</option><option>8</option></select></li>";
 			$('.interface-container ul').append(dieSidesDropdown);
-			// loop creates a number of sides options.
-			// for (var j = 0; j<101;j+=1){
-			//  	   $('.dice-sides-input-'+(i+1)).append("<option>"+ j + "</option>");
-			// }
 		}
 		// dislay the elements
 		$('.interface-container ul li').show();
-
-		//3d cube functionality 
-		// if the dice input changes, rerun the makeDie function to reset the text in the cube 
-		$('.dice-sides-input-1').change(function () {
-			makeDie();
-		})
-		// $('.dice-sides-input-2').change(function () {
-		// 	makeEightSide();
-		// })
-
 }
 
 ////////////////////////////////////////////////////////
 //// 3D Cube functions /////////////////////////////////
 ////////////////////////////////////////////////////////
 
+
 var makeDie = function () {
-	var sidesAmount = parseInt($('.dice-sides-input-1 :selected').text());
-	// takes the value passed into the selector, turns it into a number, creates a 
-	// range array (without the 0) and shuffles it. once shuffled, a for each loop
-	// adds each (random) value to each successive side by using the index count
+	$('.dice-display-container').html('');
+	$('.youRolled').html('');
+	var diceAmount = parseInt($('.dice-number-input :selected').text());
 
-	var sidesArray = _.shuffle(_.range(sidesAmount+1).slice(1))
+	// takes the value passed into the selector, turns it into a number which will be used to loop the sides a
+	// number of times. Each loop creates a range array (without the 0)and shuffles it.
+	// Once shuffled, a forEach loop adds each (random) value to each successive side by using the index count
+	for(var i = 0; i < diceAmount; i+=1) {
+		var rollNumber = {diceNumber: (i+1)};
+		// for each sides input selector, it will create the appropriate model
+		// and add in the values to the divs.
+		var sidesAmount = parseInt($('.dice-sides-input-'+(i+1)+' :selected').text());
+		var sidesArray = _.shuffle(_.range(sidesAmount+1).slice(1))
+		if (sidesAmount == 6) {
+			var dice = new Dice()
+			$('.dice-display-container').append(dice.sixSides(rollNumber));
+				sidesArray.forEach(function (x,y){
+				$('.multiple-dice'+(i+1)+' .side'+(y+1)).html(x)
+				})
+			diceRoll.push(parseInt($('.multiple-dice'+(i+1)+' .side5').html()))
 
-	// if the selection is 6 or eight will create the correct 3d model
-	if (sidesAmount == 6) {
-		$('#tridiv').show();
-
-		setTimeout(function () {
-			sidesArray.forEach(function (x,y){
-			$('.side'+(y+1)).html(x)
-			})
-		}, 300);
-	}
-	else if (sidesAmount == 8) {
-		$('#tridiv2').show();
-
-		setTimeout(function () {
-			sidesArray.forEach(function (x,y){
-			$('.side2-'+(y+1)).html(x)
-			})
-		}, 300);
+		}
+		else if (sidesAmount == 8) {
+			var dice = new Dice();
+			$('.dice-display-container').append(dice.eightSides(rollNumber));
+				sidesArray.forEach(function (x,y){
+				$('.multiple-dice'+(i+1)+' .side2-'+(y+1)).html(x)
+				})
+			diceRoll.push(parseInt($('.multiple-dice'+(i+1)+' .side2-1').html()))
+		}
 	}
 }
+
 
 
 // also on the click of the roll button, the scene of the 3d cube will transition
 // and 3d transform to make it look like the cube is rotating.
 // after 2 seconds (the length of the roll) the result is added to the colored rectangle
 $('.rollButton').click(function () {
+	var diceAmount = parseInt($('.dice-number-input :selected').text());
 	
-	var sidesAmount = parseInt($('.dice-sides-input-1 :selected').text());
+	for(var i = 0; i < diceAmount; i+=1) {
+		
+		var sidesAmount = parseInt($('.dice-sides-input-'+(i+1)+' :selected').text());
+		var sidesArray = _.shuffle(_.range(sidesAmount+1).slice(1))
+	
 
-	if (sidesAmount == 6) {
-		$('.scene').css({'transition': 'all 2s linear',
-	    '-webkit-transform':'rotateX(863deg) rotateY(-768deg)'
-		})
-
-		setTimeout(function() {
-			$('.youRolled').html('You just rolled a ' + $('.side5').text())
-		}, 2000)
+		if (sidesAmount == 6) {
+			$('.scene').css({'transition': 'all 2s linear',
+		    '-webkit-transform':'rotateX(863deg) rotateY(-768deg)'
+			})
+		}
+		else if (sidesAmount == 8) {
+			$('.scene2').css({'transition': 'all 2s linear',
+	    	'-webkit-transform':'rotateX(-544deg) rotateY(885deg) rotateZ(-503deg)'
+			})
+		}
 	}
-	else if (sidesAmount == 8) {
-		$('.scene2').css({'transition': 'all 2s linear',
-    	'-webkit-transform':'rotateX(-544deg) rotateY(885deg) rotateZ(-503deg)'
-		})
 
-		setTimeout(function() {
-			$('.youRolled').html('You just rolled a ' + $('.side2-1').text())
-		}, 2000)
+	var rollResult = diceRoll.reduce(function (x, y){
+		return x+y
+	})
 
-	}
+	setTimeout(function() {
+			$('.youRolled').append('You just rolled a ' + diceRoll.join(' + ') + ' for a total of ' + rollResult );
+			$('.rollButton').removeClass('hideButton');
+			$('.dice-number-input').val('');
+			diceSides();
+			diceRoll = [];
+		}, 2000)	
 })
+
+
 
 // reset button will remove the scene transform, and by changing the transition property to none, cause it to 
 // return instantly. it also resets the side selector to blank, as well as the divs that make up the sides of the
@@ -131,23 +164,14 @@ $('.rollButton').click(function () {
 $('.reset').click( function () {
 	$('.scene').css({'transition': 'none','-webkit-transform':'rotateX(-37deg) rotateY(-18deg)'});
 	$('.scene2').css({'transition': 'none','-webkit-transform':'rotateX(-6deg) rotateY(4deg) rotateZ(0deg)'});
-		var sidesAmount = parseInt($('.dice-sides-input-1 :selected').text());
-		if (sidesAmount == 6) {
-			(_.range(sidesAmount+1).slice(1)).forEach(function (x,y){
-				$('.side'+(y+1)).html('')
-				$('#tridiv').hide();
-			})
-		}
-		else if (sidesAmount == 8) {
-			(_.range(sidesAmount+1).slice(1)).forEach(function (x,y){
-				$('.side2'+(y+1)).html('')
-				$('#tridiv2').hide();
-			})
-		}
-		$('.youRolled').html('');
-		$('.dice-sides-input-1').val('');
-});
 
+		$('.dice-display-container').html('');
+		$('.rollButton').removeClass('hideButton');
+		$('.youRolled').html('');
+		$('.dice-number-input').val('');
+		diceSides();
+		diceRoll = [];
+});
 
 
 ////////////////////////////////////////////////////////

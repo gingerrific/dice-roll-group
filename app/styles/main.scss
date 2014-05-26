@@ -6,7 +6,10 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 .interface-container {
     margin: 40px auto;
     width: 50%;
+    height: 100px;
     vertical-align: top;
+    border: 1px solid transparent;
+
     & ul {
         list-style: none;
         display: inline-block;
@@ -50,9 +53,69 @@ button {
     display: block;
 }
 
+.button-container {
+    height: 80px;
+    width: 220px;
+    margin: 10px auto;
+    border: 1px solid transparent;
+}
+
+.rollButton {
+    display: none;
+}
+.hideButton {
+    display: block;
+}
+
+.youRolled {
+    margin: 0 auto 50px;
+    height: 100px;
+    width: 90%;
+    background: #ffb864;
+    font-size: 20px;
+    text-align: center;
+    line-height: 100px;
+    color: #fff;
+    text-shadow: 0 1px 1px darken(white, 25%);
+}
+
+.multiple-dice1 {
+    -webkit-transform:scale(.5,.5);
+    right: 25%;
+    top: -25%;
+}
+
+.multiple-dice2 {
+    -webkit-transform:scale(.5,.5);
+    left: 25%;
+    bottom: -20%;
+}
+
+.multiple-dice3 {
+    -webkit-transform:scale(.5,.5);
+    right: 25%;
+    top: 20%
+}
+
+.multiple-dice4 {
+    -webkit-transform:scale(.5,.5);
+    left: 25%;
+    top: -25%
+
+}
+
+.multiple-dice5 {
+    -webkit-transform:scale(.5,.5);
+}
+
+
+
+///////////////////////////////////////////////
+// 6 Sider ////////////////////////////////////
+///////////////////////////////////////////////
 
 /* /!\ You need to add vendor prefixes in order to render the CSS properly (or simply use http://leaverou.github.io/prefixfree/) /!\ */ 
-#tridiv {
+.tridiv {
   perspective: 800px;
   position: absolute;
   overflow: hidden;
@@ -60,7 +123,7 @@ button {
   height: 100%;
   background: transparent;
   font-size: 100%;
-  display: none;
+  // display: none;
 }
 .face {
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.4);
@@ -70,11 +133,9 @@ button {
   transform-style: preserve-3d;
 }
 .scene {
-  width: 80em;
-  height: 80em;
-  top: 50%;
-  left: 50%;
-  margin: -40em 0 0 -40em;
+  width: 100%;
+  height: 100%;
+  margin: -1.5em 0 0 .4em; 
   -webkit-transform:rotateX(-37deg) 
                     rotateY(-18deg); 
      -moz-transform:rotateX(-37deg) 
@@ -175,43 +236,13 @@ button {
 
 
 
-
-.youRolled {
-    margin: 30px auto 50px;
-    height: 100px;
-    width: 90%;
-    background: #ffb864;
-    font-size: 20px;
-    text-align: center;
-    line-height: 100px;
-    color: #fff;
-    text-shadow: 0 1px 1px darken(white, 25%);
-}
-
-
-
-
-
-
-
-
-// Pyramid
-// .face2 {
-//     text-align: center;
-//     position: relative;
-
-//     & .pyr-number {
-//         position: absolute;
-//         top: 25%;
-//         left: 25%;
-//         -webkit-transform: rotateZ(-35deg);
-//     }
-// }
-
+///////////////////////////////////////////////
+// 8 Sider ////////////////////////////////////
+///////////////////////////////////////////////
 
 /* /!\ You need to add vendor prefixes in order to render the CSS properly (or simply use http://leaverou.github.io/prefixfree/) /!\ */ 
 
-#tridiv2 {
+.tridiv2 {
   perspective: 800px;
   position: absolute;
   overflow: hidden;
@@ -219,7 +250,7 @@ button {
   height: 100%;
   background: transparent;
   font-size: 100%;
-  display: none;
+  // display: none;
 }
 .face2 {
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .4);

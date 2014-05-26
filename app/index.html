@@ -28,8 +28,32 @@
     <div class="youRolled"></div>
 
     <div class="dice-display-container">
+             
+       
+    </div>
+    <div class="button-container">
+        <button class="selectRoll">Confirm Dice</button>
+        <button class="rollButton">Roll Dice</button>      
+        <button class="reset">Reset</button>
+    </div>
+
+        <div class="interface-container">
+            <div class="dice-selector">
+                <span>Number of Dice</span>
+                <select class="dice-number-input">
+                    <option></option>
+                </select>
+            </div>
+            
+            <ul>
+            </ul>
+        </div>
+
+
+
               <!-- cube -->
-        <div id="tridiv">
+    <script type="text/template" class="sixSider">
+        <div class="tridiv multiple-dice<%=diceNumber%>">
           <div class="scene">
             <div class="shape cuboid-1 cub-1">
               <div class="face ft side1"></div>
@@ -41,10 +65,11 @@
             </div>
           </div>
         </div>
-       
+    </script>
 
         <!-- 8sider -->
-        <div id="tridiv2">
+    <script type="text/template" class="eightSider">
+        <div class="tridiv2 multiple-dice<%=diceNumber%>">
           <div class="scene2">
             <div class="shape2 pyramid-1 pyr-1">
               <div class="face-wrapper2 ft2">
@@ -110,34 +135,7 @@
             </div>
           </div>
         </div>
-
-
-    </div>
-
-        <button class="rollButton">Roll Dice</button>
-                
-        <button class="reset">Reset</button>
-
-        <div class="interface-container">
-            <div class="dice-selector">
-                <span>Number of Dice</span>
-                <select class="dice-number-input">
-                    <option></option>
-                    <option>1</option>
-                </select>
-            </div>
-            
-            <ul>
-            </ul>
-        </div>
-
-
-
-
-
-
-
-
+    </script>
 
 
 

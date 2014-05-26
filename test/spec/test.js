@@ -1,5 +1,3 @@
-/* global describe, it */
-
 'use strict';
 
 //Creating correct number of inputs using the 
@@ -20,7 +18,7 @@
 		it ('should throw an error for non-number types', function (){
 			// this will test to ensure that the number entered for the die input is an actual number //
 			var nAnForm;
-			expect(nAnForm).to.throw(error);
+			expect(true).to.be(0);
 
 		});
 
@@ -152,7 +150,7 @@
      });
 
 
-	
+	describe ('')
 (function () {
     'use strict';
 
@@ -298,3 +296,4 @@
 
     });
 })();
+

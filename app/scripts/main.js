@@ -1,4 +1,5 @@
 
+"use strict";
 
 /*Tasha
 "use strict";
@@ -22,7 +23,6 @@ return Math.floor(Math.random() * sides) + 1
 }*/
 
 
-"use strict";
 
 // var diceFace = function (rollAmt, iterator){};
 
@@ -190,6 +190,11 @@ function generateArray(numDice,minDiceSides,maxDiceSides) {
 	var randomArray = [];
 	for (var dice=0; dice<numDice; dice++) {
 		randomArray[dice] = randomNumber(minDiceSides,maxDiceSides);
+	}
+	// not sure if we need the below function either
+	randomArray.forEach(function(number) {
+		return (randomArray);
+	});
 }
 
 // Reset Button Function
@@ -200,10 +205,6 @@ $('.reset').click(function() {
     $('.container').append('<div class="box1">'+ number +'</div>');
 });
 
-// not sure if we need the below function either
-randomArray.forEach(function(number) {
-	return (randomArray);
-}
 
 
 
@@ -221,15 +222,17 @@ randomArray.forEach(function(number) {
 // }}
 
 var makeSides = function() {
-  for (var i = 0; i<100;i+=1){
-    $('.dice-sides-input').append("<option>"+ i + "</option>");
-}}
+	for (var i = 0; i<100;i+=1){
+		$('.dice-sides-input').append("<option>"+ i + "</option>");
+	}
+}
 
 
 var makeDiceAmount = function () {
- for (var i = 0; i<100;i+=1){
-    $('.dice-number-input').append("<option>"+ i + "</option>");
-}}
+	for (var i = 0; i<100;i+=1){
+		$('.dice-number-input').append("<option>"+ i + "</option>");
+	}
+}
 
 
 
@@ -246,35 +249,26 @@ var getNum = function () {
 	for (var i=0; i<diceAmount; i+=1) {
 		var sides = $('.dice-sides-input-'+(i+1)+' :selected').text();
 
-	var sides = $('.dice-sides-input :selected').text();
-	var array = [];
-	for (var i=0; i<diceAmount; i+=1) {
+		var sides = $('.dice-sides-input :selected').text();
+		var array = [];
+		for (var i=0; i<diceAmount; i+=1) {
 
-		var result = Math.floor(Math.random() * sides) + 1;
-		array[i] = result
+			var result = Math.floor(Math.random() * sides) + 1;
+			array[i] = result
+		}
 	}
 
 	console.log(array);
 
 		for(var j = 0; j <diceAmount; j+=1) {
 
-
 			$('.dice-display-container ul li:nth-child('+ (j+1) +')').html(array[j].toString()).show();
 		}
-	}
-
-
-$('.rollButton').click(function(){
-
-
-			$('.dice-display-container ul li:nth-child('+ (j+1) +')').html(array[j].toString());
-		}
-	}
+}
+	
 	
 
-$('.rollButton').click(function(){
-	
-
+$('.rollButton').click(function() {
 	return getNum();
 });
 
@@ -299,7 +293,7 @@ $(".dice-number-input").change(function() {
 	// loop creates a dice selector based on the number of dice selected
 	$('.interface-container ul').html('');
 	for(var i=0; i < diceAmount; i+=1) {
-		$('.interface-container ul').append("<li><span>Number of Sides</span><select class=\"dice-sides-input-" + (i+1) + "\"><option></option></select></li>");
+		$('.interface-container ul').append("<li><span>Number of Sides </span><select class=\"dice-sides-input-" + (i+1) + "\"><option></option></select></li>");
 		// loop creates a number of sides options.
 		for (var j = 0; j<101;j+=1){
 		 	   $('.dice-sides-input-'+(i+1)).append("<option>"+ j + "</option>");
@@ -326,8 +320,7 @@ var makeDie = function () {
 $('.rollButton').click(function () {
 	// makeDie();
 	$('.scene').css({'transition': 'all 2s linear',
-    '-webkit-transform':'rotateX(863deg) rotateY(-768deg)'
-	})
+    '-webkit-transform':'rotateX(863deg) rotateY(-768deg)'})
 
 	setTimeout(function() {
 		$('.youRolled').append('You just rolled a ' + $('.side5').text())

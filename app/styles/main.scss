@@ -99,17 +99,29 @@ body {
     height:100px;
     border:#999 2px solid;
     background:red;
-}*/
+}
 //added in a background image//
 body {
-    background-image: url(https://betclick.hs.llnwd.net/e1/pict/Casino/1500x1080_GenericTable.jpg);
-    background-size:cover;
+    // background-image: url(https://betclick.hs.llnwd.net/e1/pict/Casino/1500x1080_GenericTable.jpg);
+    background-color: rgb(131,199,131); 
+}
+
+h1 {
+    font-family: 'Titillium Web', sans-serif; 
+    font-size: 60px; 
+    text-align: center; 
+    color: #fff;
 }
 
 .interface-container {
     margin: 40px auto;
     width: 50%;
     vertical-align: top;
+    font-family: 'Titillium Web', sans-serif; 
+    font-size: 17px;
+    color: #fff;
+    margin-left: 430px;
+
     & ul {
         list-style: none;
         display: inline-block;
@@ -120,10 +132,16 @@ body {
         & li {
             display: none;
         } 
+    }
+}
 
 .interface-container {
     margin: 40px auto;
     width: 50%;
+    font-family: 'Titillium Web', sans-serif; 
+    font-size: 17px;
+    color: #fff;
+    margin-left: 430px;
 
     & ul {
         list-style: none;
@@ -157,7 +175,7 @@ body {
             margin-top: 5px;
             height: 40px;
             width:40px;
-            background: blue;
+            background: #a8afb3;
             line-height: 40px;
         }
 
@@ -173,10 +191,19 @@ body {
         margin-left: 7px;
     }
 }
+
+.dice-selector {
+    font-family: 'Titillium Web', sans-serif; 
+    display: inline-block;
+    vertical-align: top;
+    font-size: 17px;
+    color: #fff;
+}
+
 .dice-display-container {
     height: 400px;
     width: 400px;
-    background-image:url(http://img2.wfrcdn.com/lf/49/hash/13873/6765273/1/Molla-Space-Inc.-Red-Playing-Cards.jpg);
+    // background-image:url(http://img2.wfrcdn.com/lf/49/hash/13873/6765273/1/Molla-Space-Inc.-Red-Playing-Cards.jpg);
     margin: 25px auto;
     display: block;
     position: relative;
@@ -197,7 +224,7 @@ body {
             margin: 20px auto 0;
             height: 40px;
             width:40px;
-            background: blue;
+            background: #a8afb3;
             line-height: 40px;
             display: none;
         }
@@ -215,7 +242,34 @@ button {
     margin: 10px auto;
     width: 200px;
     display: block;
+    font-family: 'Titillium Web', sans-serif; 
+    background: #a8afb3;
+    background-image: -webkit-linear-gradient(top, #a8afb3, #939799);
+    background-image: -moz-linear-gradient(top, #a8afb3, #939799);
+    background-image: -ms-linear-gradient(top, #a8afb3, #939799);
+    background-image: -o-linear-gradient(top, #a8afb3, #939799);
+    background-image: linear-gradient(to bottom, #a8afb3, #939799);
+    -webkit-border-radius: 2;
+    -moz-border-radius: 2;
+    border-radius: 2px;
+    font-family: Arial;
+    box-shadow: 0px 1px 2px #9e9c9e;
+    color: #ffffff;
+    font-size: 24px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    margin-top: 40px;
+    margin-left: 515px;
+}
 
+button:hover {
+  background: #909699;
+  background-image: -webkit-linear-gradient(top, #909699, #7e8385);
+  background-image: -moz-linear-gradient(top, #909699, #7e8385);
+  background-image: -ms-linear-gradient(top, #909699, #7e8385);
+  background-image: -o-linear-gradient(top, #909699, #7e8385);
+  background-image: linear-gradient(to bottom, #909699, #7e8385);
+  text-decoration: none;
 }
 
 
@@ -232,6 +286,8 @@ button {
   height: 100%;
   background: transparent;
   font-size: 250%;
+  margin-left: -95px;
+  margin-top: -40px;
 }
 .face {
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.03);
@@ -269,7 +325,7 @@ button {
   /* hidden by default, prevent blinking and other weird rendering glitchs */
 }
 .face {
-   background-size: 100% 100%!important;
+  background-size: 100% 100%!important;
   background-position: center;
   text-align: center;
   line-height: 4em;
@@ -363,16 +419,18 @@ button {
 
 
 .youRolled {
-    margin: 200px auto 0;
+    margin: 420px auto 0;
     height: 100px;
     width: 500px;
-    background: darken(red, 2%);
-    font-size: 20px;
+    background: darken(#222, 2%);
+    font-size: 30px;
+    font-family: 'Titillium Web', sans-serif; 
+    color: #fff;
     text-align: center;
     line-height: 100px;
 }
 
 
-}
+
 
 
